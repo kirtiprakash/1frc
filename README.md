@@ -9,7 +9,7 @@ It consists of a set of Matlab scripts, associated with the Figures in the paper
 - [`singleimageFRC_WF2024dataset.m`](singleimageFRC_WF2024dataset.m): Analyses 1FRC on widefield test slide data.
 - [`singleimageFRC_STEDdataset.m`](singleimageFRC_STEDdataset.m): Analyses 1FRC on STED data.
 - [`singleimageFRC_ISMdataset.m`](singleimageFRC_ISMdataset.m): Analyses 1FRC on ISM data.
-- [`singleimageFRC_RCMdataset.m`](singleimageFRC_RCMdataset.m): Analayses 1FRC on RCM data.
+- [`singleimageFRC_RCMdataset.m`](singleimageFRC_RCMdataset.m): Analyses 1FRC on RCM data.
 - [`singleimageFRC_TEMdataset.m`](singleimageFRC_TEMdataset.m): Analyses 1FRC on TEM data.
 
 The relevant data can be found at <https://doi.org/10.4121/3f285c07-93c0-4a8a-bbcd-bc60ed749c88>

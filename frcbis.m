@@ -18,44 +18,20 @@
 %                                  The Netherlands
 % Robert Nieuwenhuizen, Oct 2012
 
-function frc_out = frcbis(varargin)
+function frc_out = frcbis(in1, in2)
 
-d = struct('menu','FRC resolution',...
-           'display','FRC',...
-           'inparams',struct('name',       {'in1',    'in2'},...
-                             'description',{'Image 1','Image 2'},...
-                             'type',       {'image',  'image'},...
-                             'dim_check',  {2,        2},...
-                             'range_check',{[],       []},...
-                             'required',   {1,        1},...
-                             'default',    {'in1',    'in2'}...
-                              ),...
-           'outparams',struct('name',{'frc_out'},...
-                              'description',{'FRC curve'},...
-                              'type',{'array'}...
-                              )...
-           );       
-       
-if nargin == 1
-   s = varargin{1};
-   if ischar(s) && strcmp(s,'DIP_GetParamList')
-      frc_out = struct('menu','none');
-      return
-   end
+if nargin ~=2
+   error('Need 2 input arguments.');
+end
+if ~isa(in1,'dip_image')
+    in1 = mat2im(in1);
+end
+if ~isa(in2,'dip_image')
+    in2 = mat2im(in2);
 end
 
-try
-   [in1, in2] = getparams(d,varargin{:});
-catch
-   if ~isempty(paramerror)
-      error(paramerror)
-   else
-      error('Parameter parsing was unsuccessful.')
-   end
-end
 
 sz = imsize(in1);
-
 if any(imsize(in2) ~= sz)
     error('Image 1 and image 2 have different image sizes.');
 end

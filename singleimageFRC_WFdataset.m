@@ -4,7 +4,7 @@
 %
 % Sjoerd Stallinga, TU Delft, 2024
 
-clear all
+clear 
 close all
 
 addpath('C:\Program Files\DIPimage 2.9\common\dipimage');

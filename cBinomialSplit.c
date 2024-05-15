@@ -125,7 +125,7 @@ int bnldev(float pp, int n, long *idum)
 void mexFunction(int nlhs, mxArray *plhs[],	int	nrhs, const	mxArray*prhs[])
 {
     int dims;
-    FLOAT *image;
+    INT *image;
     INT *out1, *out2;
     INT  value, x, xbis;
     int ii,numel;
@@ -139,8 +139,8 @@ void mexFunction(int nlhs, mxArray *plhs[],	int	nrhs, const	mxArray*prhs[])
     if (dims !=2 && dims !=3) {
       mexErrMsgTxt("2D or 3D image expected for now.");
    }
-    if (mxGetClassID(prhs[0])!=mxDOUBLE_CLASS)
-        mexErrMsgTxt("data must be double\n");
+    if (mxGetClassID(prhs[0])!=mxINT32_CLASS)
+        mexErrMsgTxt("data must be integer\n");
      if (nlhs != 2) {
         mexErrMsgTxt("Need 2 output arguments");
     }
@@ -159,7 +159,7 @@ void mexFunction(int nlhs, mxArray *plhs[],	int	nrhs, const	mxArray*prhs[])
     }
             /*try linear indexing */
     for (ii=0; ii< numel-1; ii++){
-        value = (int) *(image++);
+        value = *(image++);
         x = bnldev(0.5, value, &idum);
         *(out1++) = x;
         *(out2++) = value-x;
